@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Crawler Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <form method="post" style="margin-top: 30px;">
+        <div class="form-group">
+            <input type="text" name="url" placeholder="Nhập url bài báo cần crawl" class="form-control">
+        </div>
+        <div class="form-group" style="text-align: center;">
+            <input type="submit" class="btn btn-success">
+        </div>
+    </form>
+</div>
+{% if body %}
+<div class="container" style="margin-top: 30px;">
+    <div class="row">
+        <div class="col-md-3"></div>
+
+        <!--START BODY-->
+
+        <div class="col-md-6">
+            <h1 style="font-size: 1.5em;"><a href="{{url}}" style="text-decoration: none" target="_blank">{{title}}</a></h1>
+            <h2 style="font-size: 1em; font-weight: bold;">{{sapo}}</h2>
+            <div class="news-content">
+                {{body | safe}}
+            </div>
+            <p><strong>Keywords</strong>: {{keywords}}</p>
+        </div>
+
+        <!--END BODY-->
+
+        <div class="col-md-3"></div>
+    </div>
+</div>
+{% endif %}
+</body>
+</html>
